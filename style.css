@@ -50,13 +50,13 @@ header {
 }
 
 .one {
-    background: url(images/1.jpg)no-repeat center fixed;
+    background: url(https://raw.githubusercontent.com/theinfinox/theinfinox.github.io/main/images/1.jpg)no-repeat center fixed;
 }
 
 .two {
-    background: url(images/2.jpg)no-repeat center fixed;
+    background: url(https://raw.githubusercontent.com/theinfinox/theinfinox.github.io/main/images/2.jpg)no-repeat center fixed;
 }
 
 .three {
-    background: url(images/3.jpg)no-repeat center fixed;
+    background: url(https://raw.githubusercontent.com/theinfinox/theinfinox.github.io/main/images/3.jpg)no-repeat center fixed;
 }
