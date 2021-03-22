@@ -105,6 +105,7 @@ iframe {
     width: 300px;
     height: 100px;
     position: absolute;
+    margin: 0px auto;
 }
 
 #name img {
