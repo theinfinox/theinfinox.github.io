@@ -1,7 +1,7 @@
 body {
     margin: 0px auto;
     background: linear-gradient(#fff, #ccc);
-    font-family: 'Comfortaa';
+    font-family: "Comfortaa";
 }
 
 header {
@@ -96,6 +96,6 @@ section {
 }
 
 iframe {
-    float: left;
+    float: centre;
     margin-left: 10px;
 }
