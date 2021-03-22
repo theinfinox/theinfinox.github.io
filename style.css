@@ -72,7 +72,7 @@ header {
 }
 
 #menu li {
-    float: right;
+    float: left;
     margin-right: 60px;
     margin-top: 8px;
     list-style: none;
