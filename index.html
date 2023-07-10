@@ -15,12 +15,14 @@
         @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Readex+Pro&display=swap');
 
         #myVideo {
-            position: fixed;
-            right: 0;
-            bottom: 0;
-            min-width: 100%;
-            min-height: 100%;
-        }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
     </style>
 
     <meta charset="utf-8">
@@ -31,12 +33,32 @@
 </head>
 
 <body class="w-screen h-screen bg-no-repeat bg-cover" style="background-color:black;">
-    <video autoplay loop muted id="myVideo">
-        <source type="video/mp4" src="customs/gsr.mp4">
-        <source type="video/ogg" src="">
-        <source type="video/webm" src="customs/gsr.webm">
+  <div class="flex justify-center items-center">
+    <video autoplay loop muted id="myVideo" class="w-full">
+      <source src="customs/gsr.mp4" type="video/mp4" media="(orientation: landscape)">
+      <source src="customs/gsr.webm" type="video/webm" media="(orientation: landscape)">
+      <source src="customs/gsrm.mp4" type="video/mp4" media="(orientation: portrait)">
+      <source src="customs/gsrm.webm" type="video/webm" media="(orientation: portrait)">
+
     </video>
-    <div class="w-11/12 sm:w-10/12 md:w-8/12 lg:w-7/12 xl:w-6/12 h-auto sm:h-2/3 bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 border border-gray-600 rounded-md mx-auto my-auto absolute inset-0">
+  </div>
+  <script>
+    function switchVideoSource() {
+      var video = document.getElementById("myVideo");
+      var isPortrait = window.innerHeight > window.innerWidth;
+  
+      if (isPortrait) {
+        video.src = video.canPlayType("video/mp4") ? "customs/gsrm.mp4" : "customs/gsrm.webm";
+      } else {
+        video.src = video.canPlayType("video/mp4") ? "customs/gsr.mp4" : "customs/gsr.webm";
+      }
+    }
+  
+    window.addEventListener("orientationchange", switchVideoSource);
+    switchVideoSource();
+  </script>
+  
+    <div class="w-11/12 sm:w-10/12 md:w-8/12 lg:w-7/12 xl:w-6/12 h-2/3 sm:h-2/3 bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 border border-gray-600 rounded-md mx-auto my-auto absolute inset-0">
       <div class="relative transition duration-150 ease-in-out filter grayscale w-60 h-60 aspect-square overflow-hidden rounded-full flex flex-row justify-center items-center mx-auto mt-6 transform hover:filter-none">
           <img src="https://avatars.githubusercontent.com/u/64773624" class="w-full h-full object-cover" alt="Profile Picture">
       </div>
