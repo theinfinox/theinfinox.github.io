@@ -10,10 +10,10 @@ function generateUPILink() {
         return;
     }
 
-    const psp = "ybl"; // Example PSP - you can change this 
+    //const psp = "ybl"; // Example PSP - you can change this 
     const url = "https://blr1.blynk.cloud/external/api/update?token=RdPZKZXEmB59iMaBP2EYH75mw8afKzY3&D4=1";
 
-    const baseUPI = `upi://pay?pa=${payeeVPA}@${psp}&pn=${payeeName}&am=${amount}&cu=INR`;
+    const baseUPI = `upi://pay?pa=${payeeVPA}&pn=${payeeName}&am=${amount}&cu=INR`;
     const encodedNote = transactionNote ? `&tn=${encodeURIComponent(transactionNote)}` : '';
     const encodedUrl = url ? `&url=${encodeURIComponent(url)}` : '';
 
