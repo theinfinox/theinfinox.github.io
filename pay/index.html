@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPI Payment Form</title>
+</head>
+<body>
+    <form id="upiForm">
+        <label for="payeeVPA">Payee VPA:</label>
+        <input type="text" id="payeeVPA" name="payeeVPA" required><br><br>
+
+        <label for="payeeName">Payee Name:</label>
+        <input type="text" id="payeeName" name="payeeName" required><br><br>
+
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" name="amount" required><br><br>
+
+        <label for="transactionNote">Transaction Note (Optional):</label>
+        <input type="text" id="transactionNote" name="transactionNote"><br><br>
+
+        <button type="button" onclick="generateUPILink()">Generate UPI Link</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
