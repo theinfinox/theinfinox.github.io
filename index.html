@@ -6,7 +6,7 @@
   <title>Govind S R — Cloud Consultant &amp; Hardware Enthusiast</title>
   
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <link rel="apple-touch-icon" href="assets/avatar.jpg" />
+  <link rel="apple-touch-icon" href="favicon.ico" />
 
   <!-- Primary Meta Tags -->
   <meta name="title" content="Govind S R — Cloud Consultant &amp; Hardware Enthusiast" />
@@ -23,14 +23,12 @@
   <meta property="og:url" content="https://govindsr.me/" />
   <meta property="og:title" content="Govind S R — Cloud Consultant &amp; Hardware Enthusiast" />
   <meta property="og:description" content="Freelance Cloud Consultant &amp; Hardware Enthusiast based in Kerala, India. Multi-cloud architecture, DevOps, and embedded IoT systems." />
-  <meta property="og:image" content="https://theinfinox.github.io/assets/avatar.jpg" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:url" content="https://govindsr.me/" />
   <meta name="twitter:title" content="Govind S R — Cloud Consultant &amp; Hardware Enthusiast" />
   <meta name="twitter:description" content="Freelance Cloud Consultant &amp; Hardware Enthusiast based in Kerala, India. Multi-cloud architecture, DevOps, and embedded IoT systems." />
-  <meta name="twitter:image" content="https://theinfinox.github.io/assets/avatar.jpg" />
 
   <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com" rel="preconnect" />
@@ -40,6 +38,9 @@
 
   <style>
     @layer base {
+      html {
+        font-size: 13.5px;
+      }
       html, body {
         margin: 0;
         padding: 0;
@@ -77,279 +78,267 @@
 </head>
 <body class="bg-[#09090b] font-mono text-zinc-300 min-h-screen selection:bg-zinc-800 selection:text-white antialiased">
   <!-- Understated Minimalist Top Bar -->
-  <header class="w-full max-w-[620px] mx-auto px-5 pt-8 pb-6 flex items-center justify-between text-xs text-zinc-500 font-mono">
-    <div class="flex items-center gap-4">
+  <header class="w-full max-w-[600px] mx-auto px-5 pt-7 pb-5 flex items-center justify-between text-[11px] text-zinc-500 font-mono">
+    <div class="flex items-center gap-3.5">
       <a class="text-zinc-200 hover:text-white transition-colors font-medium" href="#">~/index</a>
       <a class="hover:text-zinc-300 transition-colors" href="#projects">~/work</a>
       <a class="hover:text-zinc-300 transition-colors" href="#telemetry">~/system</a>
       <a class="hover:text-zinc-300 transition-colors" href="mailto:contact@govindsr.me">~/contact</a>
     </div>
-    <div class="flex items-center gap-3">
-      <span class="tracking-tight text-zinc-400 font-mono" id="ist-clock">--:-- IST</span>
+    <div class="flex items-center gap-2.5">
+      <span class="tracking-tight text-zinc-400 font-mono text-[10px]" id="ist-clock">--:-- IST</span>
       <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500/80"></span>
     </div>
   </header>
 
   <!-- Main Content Column -->
-  <main class="w-full max-w-[620px] mx-auto px-5 pb-20 flex flex-col gap-10">
-    <!-- Bio & Intro Header (Inspired by amithv.xyz) -->
-    <section class="flex flex-col gap-4 pt-2">
-      <div class="flex items-center gap-3.5">
-        <div class="w-11 h-11 rounded-full overflow-hidden bg-zinc-800 border border-zinc-700/60 flex-shrink-0">
-          <img
-            alt="Govind S R"
-            class="w-full h-full object-cover grayscale contrast-125"
-            src="assets/avatar.jpg"
-            onerror="this.onerror=null; this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuAn91aovPSpJvQCHTJ2vL5crm5quWI5jRnjc2sXXAYE2OEDzIOMZIe3If20c3uh_RrcxypCXrGe5-0qOJBr2Uxe0cxJJZBUlq_ghbwQwR-hsyUkiQQMp_0u2arUkbgzzl-sDi_B-7jPTzE1O9U1OwHarx8FVtZzENZjb4tazB23KEhnoQyTNNB4NEBN8j3MgTUKGHpAswpFCstN-xfhBbEZdDMa1z8vqUQ5DHN7rSRL';"
-          />
-        </div>
-        <div class="flex flex-col">
-          <div class="flex items-center gap-2">
-            <h1 class="text-base text-zinc-100 font-medium tracking-tight">Hi, I am Govind S R.</h1>
-          </div>
-          <p class="text-xs text-zinc-400">Freelance Cloud Consultant &amp; Hardware Enthusiast</p>
-          <span class="text-[11px] text-zinc-500">Thiruvananthapuram, Kerala, India</span>
-        </div>
+  <main class="w-full max-w-[600px] mx-auto px-5 pb-16 flex flex-col gap-8">
+    <!-- Bio & Intro Header (No Avatar, Pure Minimal Terminal Typography) -->
+    <section class="flex flex-col gap-2.5 pt-1">
+      <div class="flex flex-col gap-0.5">
+        <h1 class="text-[13.5px] text-zinc-100 font-medium tracking-tight">Hi, I am Govind S R.</h1>
+        <p class="text-[11px] text-zinc-400">Freelance Cloud Consultant &amp; Hardware Enthusiast</p>
+        <span class="text-[10px] text-zinc-500">Thiruvananthapuram, Kerala, India</span>
       </div>
       <!-- Clean Human Contact Handles -->
-      <div class="flex items-center gap-3 text-xs text-zinc-400 pt-1 flex-wrap font-mono">
-        <a class="hover:text-white transition-colors flex items-center gap-1" href="mailto:contact@govindsr.me">
+      <div class="flex items-center gap-2.5 text-[10.5px] text-zinc-400 pt-0.5 flex-wrap font-mono">
+        <a class="hover:text-white transition-colors flex items-center gap-0.5" href="mailto:contact@govindsr.me">
           <span class="text-zinc-600">@</span>email
         </a>
         <span class="text-zinc-700">·</span>
-        <a class="hover:text-white transition-colors flex items-center gap-1" href="https://github.com/theinfinox" rel="noreferrer" target="_blank">
+        <a class="hover:text-white transition-colors flex items-center gap-0.5" href="https://github.com/theinfinox" rel="noreferrer" target="_blank">
           <span class="text-zinc-600">gh/</span>theinfinox
         </a>
         <span class="text-zinc-700">·</span>
-        <a class="hover:text-white transition-colors flex items-center gap-1" href="https://linkedin.com/in/theinfinox" rel="noreferrer" target="_blank">
+        <a class="hover:text-white transition-colors flex items-center gap-0.5" href="https://linkedin.com/in/theinfinox" rel="noreferrer" target="_blank">
           <span class="text-zinc-600">in/</span>theinfinox
         </a>
         <span class="text-zinc-700">·</span>
-        <a class="hover:text-white transition-colors flex items-center gap-1" href="https://instagram.com/theinfinox" rel="noreferrer" target="_blank">
+        <a class="hover:text-white transition-colors flex items-center gap-0.5" href="https://instagram.com/theinfinox" rel="noreferrer" target="_blank">
           <span class="text-zinc-600">ig/</span>theinfinox
         </a>
       </div>
     </section>
 
     <!-- Currently Section -->
-    <section class="flex flex-col gap-2">
-      <h2 class="text-xs uppercase tracking-wider text-zinc-500 font-medium">CURRENTLY</h2>
-      <div class="text-xs text-zinc-300 leading-relaxed flex flex-col gap-0.5">
+    <section class="flex flex-col gap-1.5">
+      <h2 class="text-[10px] uppercase tracking-wider text-zinc-500 font-medium">CURRENTLY</h2>
+      <div class="text-[10.5px] text-zinc-300 leading-relaxed flex flex-col gap-0.5">
         <div class="flex items-baseline justify-between">
-          <span class="text-zinc-200 font-medium">Freelance Cloud Consultant &amp; SysAdmin</span>
-          <span class="text-emerald-400/90 text-[11px] font-mono">open for hire</span>
+          <span class="text-zinc-200 font-medium text-[11px]">Freelance Cloud Consultant &amp; SysAdmin</span>
+          <span class="text-emerald-400/90 text-[10px] font-mono">open for hire</span>
         </div>
-        <p class="text-zinc-400 text-xs mt-1">
+        <p class="text-zinc-500 text-[10px]">
           Self-Employed · Remote (2024 — Present)
         </p>
-        <p class="text-zinc-400 text-xs mt-1 leading-relaxed">
+        <p class="text-zinc-400 text-[10.5px] mt-0.5 leading-relaxed">
           Designing hardened architectures across AWS, Azure, GCP, and DigitalOcean. Specializing in Cloudflare Zero Trust perimeter security and edge workloads.
         </p>
       </div>
     </section>
 
     <!-- About Section -->
-    <section class="flex flex-col gap-2">
-      <h2 class="text-xs uppercase tracking-wider text-zinc-500 font-medium">ABOUT</h2>
-      <p class="text-xs text-zinc-400 leading-relaxed">
+    <section class="flex flex-col gap-1.5">
+      <h2 class="text-[10px] uppercase tracking-wider text-zinc-500 font-medium">ABOUT</h2>
+      <p class="text-[10.5px] text-zinc-400 leading-relaxed">
         I am a systems &amp; cloud consultant and hardware tinkerer who designs secure multi-cloud infrastructures and builds embedded systems. Specializing in AWS, Azure, GCP, Cloudflare Zero Trust, and IoT solutions that connect physical hardware with scalable cloud backends.
       </p>
     </section>
 
     <!-- PiCloud Live Telemetry Card (info.govindsr.me sync) -->
-    <section class="flex flex-col gap-2.5" id="telemetry">
+    <section class="flex flex-col gap-2" id="telemetry">
       <div class="flex items-center justify-between">
-        <div class="flex items-center gap-2">
-          <h2 class="text-xs uppercase tracking-wider text-zinc-500 font-medium">SERVER TELEMETRY</h2>
-          <span class="text-[11px] text-zinc-600 font-mono" id="telemetry-node-label">// PiCloud node</span>
+        <div class="flex items-center gap-1.5">
+          <h2 class="text-[10px] uppercase tracking-wider text-zinc-500 font-medium">SERVER TELEMETRY</h2>
+          <span class="text-[10px] text-zinc-600 font-mono" id="telemetry-node-label">// PiCloud node</span>
         </div>
-        <a class="text-[11px] text-zinc-400 hover:text-white transition-colors flex items-center gap-1 group font-mono" href="https://info.govindsr.me/" rel="noreferrer" target="_blank">
+        <a class="text-[10px] text-zinc-400 hover:text-white transition-colors flex items-center gap-1 group font-mono" href="https://info.govindsr.me/" rel="noreferrer" target="_blank">
           <span>info.govindsr.me</span>
           <span class="group-hover:translate-x-0.5 transition-transform text-zinc-500 group-hover:text-zinc-200">↗</span>
         </a>
       </div>
-      <div class="rounded border border-zinc-800 bg-[#0d0d10] p-3 text-xs font-mono flex flex-col gap-2.5">
+      <div class="rounded border border-zinc-800 bg-[#0d0d10] p-2.5 text-[10.5px] font-mono flex flex-col gap-2">
         <!-- Live status bar -->
-        <div class="flex items-center justify-between border-b border-zinc-800/80 pb-2">
+        <div class="flex items-center justify-between border-b border-zinc-800/80 pb-1.5">
           <div class="flex items-center gap-2">
             <span class="relative flex h-2 w-2" id="telemetry-status-container">
               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" id="telemetry-ping-pulse"></span>
               <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" id="telemetry-ping-dot"></span>
             </span>
-            <span class="text-zinc-200 text-xs" id="telemetry-stream-status">stream: connecting...</span>
+            <span class="text-zinc-200 text-[10.5px]" id="telemetry-stream-status">stream: connecting...</span>
             <span class="text-zinc-600">|</span>
-            <span class="text-zinc-400 text-[11px]">Cloudflare Zero Trust tunnel</span>
+            <span class="text-zinc-400 text-[10px]">Cloudflare Zero Trust tunnel</span>
           </div>
-          <span class="text-[11px] text-zinc-500" id="telemetry-uptime">uptime: --</span>
+          <span class="text-[10px] text-zinc-500" id="telemetry-uptime">uptime: --</span>
         </div>
         <!-- Metrics Grid -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-0.5 text-[11px]">
-          <div class="flex flex-col bg-zinc-900/60 p-2 rounded border border-zinc-800/60">
-            <span class="text-zinc-500 text-[10px] uppercase" id="telemetry-cpu-label">CPU (4 Cores)</span>
-            <span class="text-zinc-200 font-medium mt-0.5" id="telemetry-cpu-val">--% <span class="text-zinc-500 text-[10px]">avg</span></span>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-1.5 pt-0.5 text-[10px]">
+          <div class="flex flex-col bg-zinc-900/60 p-1.5 rounded border border-zinc-800/60">
+            <span class="text-zinc-500 text-[9px] uppercase" id="telemetry-cpu-label">CPU (4 Cores)</span>
+            <span class="text-zinc-200 font-medium text-[10.5px] mt-0.5" id="telemetry-cpu-val">--% <span class="text-zinc-500 text-[9px]">avg</span></span>
           </div>
-          <div class="flex flex-col bg-zinc-900/60 p-2 rounded border border-zinc-800/60">
-            <span class="text-zinc-500 text-[10px] uppercase">RAM Usage</span>
-            <span class="text-zinc-200 font-medium mt-0.5" id="telemetry-ram-val">-- <span class="text-zinc-500 text-[10px]">/ 4.0GB</span></span>
+          <div class="flex flex-col bg-zinc-900/60 p-1.5 rounded border border-zinc-800/60">
+            <span class="text-zinc-500 text-[9px] uppercase">RAM Usage</span>
+            <span class="text-zinc-200 font-medium text-[10.5px] mt-0.5" id="telemetry-ram-val">-- <span class="text-zinc-500 text-[9px]">/ 4.0GB</span></span>
           </div>
-          <div class="flex flex-col bg-zinc-900/60 p-2 rounded border border-zinc-800/60">
-            <span class="text-zinc-500 text-[10px] uppercase">Thermal</span>
-            <span class="text-emerald-400 font-medium mt-0.5" id="telemetry-temp-val">--°C</span>
+          <div class="flex flex-col bg-zinc-900/60 p-1.5 rounded border border-zinc-800/60">
+            <span class="text-zinc-500 text-[9px] uppercase">Thermal</span>
+            <span class="text-emerald-400 font-medium text-[10.5px] mt-0.5" id="telemetry-temp-val">--°C</span>
           </div>
-          <div class="flex flex-col bg-zinc-900/60 p-2 rounded border border-zinc-800/60">
-            <span class="text-zinc-500 text-[10px] uppercase">Services</span>
-            <span class="text-zinc-200 font-medium mt-0.5" id="telemetry-services-val">--/-- <span class="text-emerald-400 text-[10px]">healthy</span></span>
+          <div class="flex flex-col bg-zinc-900/60 p-1.5 rounded border border-zinc-800/60">
+            <span class="text-zinc-500 text-[9px] uppercase">Services</span>
+            <span class="text-zinc-200 font-medium text-[10.5px] mt-0.5" id="telemetry-services-val">--/-- <span class="text-emerald-400 text-[9px]">healthy</span></span>
           </div>
         </div>
         <!-- Network I/O ticker -->
-        <div class="flex items-center justify-between text-[11px] text-zinc-500 pt-1">
+        <div class="flex items-center justify-between text-[10px] text-zinc-500 pt-0.5">
           <span class="flex items-center gap-2 font-mono">
             <span id="telemetry-rx">↓ -- B/s</span>
             <span class="text-zinc-700">·</span>
             <span id="telemetry-tx">↑ -- B/s</span>
           </span>
-          <a class="text-zinc-400 hover:text-white transition-colors underline underline-offset-2" href="https://info.govindsr.me/" rel="noreferrer" target="_blank">
+          <a class="text-zinc-400 hover:text-white transition-colors underline underline-offset-2 text-[10px]" href="https://info.govindsr.me/" rel="noreferrer" target="_blank">
             open full telemetry feed ↗
           </a>
         </div>
       </div>
     </section>
 
-    <!-- Projects Section (Quiet minimal amithv.xyz inspired layout) -->
-    <section class="flex flex-col gap-3" id="projects">
+    <!-- Projects Section -->
+    <section class="flex flex-col gap-2" id="projects">
       <div class="flex items-center justify-between">
-        <h2 class="text-xs uppercase tracking-wider text-zinc-500 font-medium">PROJECTS</h2>
-        <span class="text-[11px] text-zinc-600 font-mono">06 selected</span>
+        <h2 class="text-[10px] uppercase tracking-wider text-zinc-500 font-medium">PROJECTS</h2>
+        <span class="text-[10px] text-zinc-600 font-mono">06 selected</span>
       </div>
       <div class="flex flex-col divide-y divide-zinc-800/60 border-t border-b border-zinc-800/60">
         <!-- Project 1 -->
-        <a class="group py-2.5 flex items-baseline justify-between transition-colors" href="https://github.com/theinfinox/project_haajar_app" rel="noreferrer" target="_blank">
+        <a class="group py-2 flex items-baseline justify-between transition-colors" href="https://github.com/theinfinox/project_haajar_app" rel="noreferrer" target="_blank">
           <div class="flex flex-col min-w-0 pr-4">
             <div class="flex items-baseline gap-2">
-              <span class="text-xs text-zinc-200 font-medium group-hover:text-white transition-colors">Project Haajar</span>
-              <span class="text-[11px] text-zinc-500 truncate">Flutter, React, Appwrite, SES</span>
+              <span class="text-[11px] text-zinc-200 font-medium group-hover:text-white transition-colors">Project Haajar</span>
+              <span class="text-[10px] text-zinc-500 truncate">Flutter, React, Appwrite, SES</span>
             </div>
-            <p class="text-[11px] text-zinc-500 group-hover:text-zinc-400 transition-colors mt-0.5">
+            <p class="text-[10px] text-zinc-500 group-hover:text-zinc-400 transition-colors mt-0.5">
               Smart College Management System backed by AWS SES &amp; PiCloud
             </p>
           </div>
-          <span class="text-xs text-zinc-600 group-hover:text-zinc-300 group-hover:translate-x-0.5 transition-all flex-shrink-0 font-mono">→</span>
+          <span class="text-[10px] text-zinc-600 group-hover:text-zinc-300 group-hover:translate-x-0.5 transition-all flex-shrink-0 font-mono">→</span>
         </a>
         <!-- Project 2 -->
-        <a class="group py-2.5 flex items-baseline justify-between transition-colors" href="https://info.govindsr.me/" rel="noreferrer" target="_blank">
+        <a class="group py-2 flex items-baseline justify-between transition-colors" href="https://info.govindsr.me/" rel="noreferrer" target="_blank">
           <div class="flex flex-col min-w-0 pr-4">
             <div class="flex items-baseline gap-2">
-              <span class="text-xs text-zinc-200 font-medium group-hover:text-white transition-colors">PiCloud</span>
-              <span class="text-[11px] text-zinc-500 truncate">Docker, Raspberry Pi, Zero Trust</span>
+              <span class="text-[11px] text-zinc-200 font-medium group-hover:text-white transition-colors">PiCloud</span>
+              <span class="text-[10px] text-zinc-500 truncate">Docker, Raspberry Pi, Zero Trust</span>
             </div>
-            <p class="text-[11px] text-zinc-500 group-hover:text-zinc-400 transition-colors mt-0.5">
+            <p class="text-[10px] text-zinc-500 group-hover:text-zinc-400 transition-colors mt-0.5">
               Self-hosted server stack with live WebSocket telemetry
             </p>
           </div>
-          <span class="text-xs text-zinc-600 group-hover:text-zinc-300 group-hover:translate-x-0.5 transition-all flex-shrink-0 font-mono">→</span>
+          <span class="text-[10px] text-zinc-600 group-hover:text-zinc-300 group-hover:translate-x-0.5 transition-all flex-shrink-0 font-mono">→</span>
         </a>
         <!-- Project 3 -->
-        <a class="group py-2.5 flex items-baseline justify-between transition-colors" href="https://github.com/transitmaster/transitmaster.github.io" rel="noreferrer" target="_blank">
+        <a class="group py-2 flex items-baseline justify-between transition-colors" href="https://github.com/transitmaster/transitmaster.github.io" rel="noreferrer" target="_blank">
           <div class="flex flex-col min-w-0 pr-4">
             <div class="flex items-baseline gap-2">
-              <span class="text-xs text-zinc-200 font-medium group-hover:text-white transition-colors">Transit Master</span>
-              <span class="text-[11px] text-zinc-500 truncate">Azure VM, Node.js, NFC</span>
+              <span class="text-[11px] text-zinc-200 font-medium group-hover:text-white transition-colors">Transit Master</span>
+              <span class="text-[10px] text-zinc-500 truncate">Azure VM, Node.js, NFC</span>
             </div>
-            <p class="text-[11px] text-zinc-500 group-hover:text-zinc-400 transition-colors mt-0.5">
+            <p class="text-[10px] text-zinc-500 group-hover:text-zinc-400 transition-colors mt-0.5">
               Urban mobility NFC smart-card transit architecture
             </p>
           </div>
-          <span class="text-xs text-zinc-600 group-hover:text-zinc-300 group-hover:translate-x-0.5 transition-all flex-shrink-0 font-mono">→</span>
+          <span class="text-[10px] text-zinc-600 group-hover:text-zinc-300 group-hover:translate-x-0.5 transition-all flex-shrink-0 font-mono">→</span>
         </a>
         <!-- Project 4 -->
-        <a class="group py-2.5 flex items-baseline justify-between transition-colors" href="https://github.com/theinfinox/pc-media-control-lan" rel="noreferrer" target="_blank">
+        <a class="group py-2 flex items-baseline justify-between transition-colors" href="https://github.com/theinfinox/pc-media-control-lan" rel="noreferrer" target="_blank">
           <div class="flex flex-col min-w-0 pr-4">
             <div class="flex items-baseline gap-2">
-              <span class="text-xs text-zinc-200 font-medium group-hover:text-white transition-colors">LAN Media Controller</span>
-              <span class="text-[11px] text-zinc-500 truncate">Node.js, WebSockets</span>
+              <span class="text-[11px] text-zinc-200 font-medium group-hover:text-white transition-colors">LAN Media Controller</span>
+              <span class="text-[10px] text-zinc-500 truncate">Node.js, WebSockets</span>
             </div>
-            <p class="text-[11px] text-zinc-500 group-hover:text-zinc-400 transition-colors mt-0.5">
+            <p class="text-[10px] text-zinc-500 group-hover:text-zinc-400 transition-colors mt-0.5">
               Local network remote playback controller for workstation media
             </p>
           </div>
-          <span class="text-xs text-zinc-600 group-hover:text-zinc-300 group-hover:translate-x-0.5 transition-all flex-shrink-0 font-mono">→</span>
+          <span class="text-[10px] text-zinc-600 group-hover:text-zinc-300 group-hover:translate-x-0.5 transition-all flex-shrink-0 font-mono">→</span>
         </a>
         <!-- Project 5 -->
-        <a class="group py-2.5 flex items-baseline justify-between transition-colors" href="https://youtu.be/qXbrW9apR3U" rel="noreferrer" target="_blank">
+        <a class="group py-2 flex items-baseline justify-between transition-colors" href="https://youtu.be/qXbrW9apR3U" rel="noreferrer" target="_blank">
           <div class="flex flex-col min-w-0 pr-4">
             <div class="flex items-baseline gap-2">
-              <span class="text-xs text-zinc-200 font-medium group-hover:text-white transition-colors">Smart Drip Irrigation</span>
-              <span class="text-[11px] text-zinc-500 truncate">NodeMCU, Blynk, IFTTT</span>
+              <span class="text-[11px] text-zinc-200 font-medium group-hover:text-white transition-colors">Smart Drip Irrigation</span>
+              <span class="text-[10px] text-zinc-500 truncate">NodeMCU, Blynk, IFTTT</span>
             </div>
-            <p class="text-[11px] text-zinc-500 group-hover:text-zinc-400 transition-colors mt-0.5">
+            <p class="text-[10px] text-zinc-500 group-hover:text-zinc-400 transition-colors mt-0.5">
               Automated agricultural system with Google Assistant control
             </p>
           </div>
-          <span class="text-xs text-zinc-600 group-hover:text-zinc-300 group-hover:translate-x-0.5 transition-all flex-shrink-0 font-mono">→</span>
+          <span class="text-[10px] text-zinc-600 group-hover:text-zinc-300 group-hover:translate-x-0.5 transition-all flex-shrink-0 font-mono">→</span>
         </a>
         <!-- Project 6 -->
-        <div class="py-2.5 flex items-baseline justify-between">
+        <div class="py-2 flex items-baseline justify-between">
           <div class="flex flex-col min-w-0 pr-4">
             <div class="flex items-baseline gap-2">
-              <span class="text-xs text-zinc-400 font-medium">Customized Alexa</span>
-              <span class="text-[11px] text-zinc-600">Alexa SDK, Raspberry Pi</span>
+              <span class="text-[11px] text-zinc-400 font-medium">Customized Alexa</span>
+              <span class="text-[10px] text-zinc-600">Alexa SDK, Raspberry Pi</span>
             </div>
-            <p class="text-[11px] text-zinc-600 mt-0.5">
+            <p class="text-[10px] text-zinc-600 mt-0.5">
               Voice-driven campus inquiries and COVID room automation
             </p>
           </div>
-          <span class="text-[11px] text-zinc-600 font-mono flex-shrink-0">[archived]</span>
+          <span class="text-[10px] text-zinc-600 font-mono flex-shrink-0">[archived]</span>
         </div>
       </div>
     </section>
 
     <!-- Experience Timeline Section -->
-    <section class="flex flex-col gap-3">
+    <section class="flex flex-col gap-2">
       <div class="flex items-center justify-between">
-        <h2 class="text-xs uppercase tracking-wider text-zinc-500 font-medium">EXPERIENCE</h2>
+        <h2 class="text-[10px] uppercase tracking-wider text-zinc-500 font-medium">EXPERIENCE</h2>
       </div>
-      <div class="flex flex-col gap-4 text-xs">
+      <div class="flex flex-col gap-3.5 text-[10.5px]">
         <!-- Exp Item 1 -->
         <div class="flex flex-col gap-0.5">
           <div class="flex items-baseline justify-between">
-            <span class="text-zinc-200 font-medium">Freelance Cloud Consultant &amp; SysAdmin</span>
-            <span class="text-[11px] text-zinc-500">2024 — Present</span>
+            <span class="text-zinc-200 font-medium text-[11px]">Freelance Cloud Consultant &amp; SysAdmin</span>
+            <span class="text-[10px] text-zinc-500">2024 — Present</span>
           </div>
-          <span class="text-[11px] text-zinc-500">Self-Employed · Remote</span>
-          <p class="text-zinc-400 text-xs mt-1 leading-relaxed">
+          <span class="text-[10px] text-zinc-500">Self-Employed · Remote</span>
+          <p class="text-zinc-400 text-[10.5px] mt-0.5 leading-relaxed">
             Multi-cloud infrastructure management across AWS, Azure, GCP, and DigitalOcean. Implemented Cloudflare Zero-Trust tunnels, handled security incidents, and containerized internal applications with Docker.
           </p>
         </div>
         <!-- Exp Item 2 -->
         <div class="flex flex-col gap-0.5">
           <div class="flex items-baseline justify-between">
-            <span class="text-zinc-200 font-medium">General Manager</span>
-            <span class="text-[11px] text-zinc-500">2024 — 2025</span>
+            <span class="text-zinc-200 font-medium text-[11px]">General Manager</span>
+            <span class="text-[10px] text-zinc-500">2024 — 2025</span>
           </div>
-          <span class="text-[11px] text-zinc-500">Manav Prakriti Foundation · Hybrid</span>
-          <p class="text-zinc-400 text-xs mt-1 leading-relaxed">
+          <span class="text-[10px] text-zinc-500">Manav Prakriti Foundation · Hybrid</span>
+          <p class="text-zinc-400 text-[10.5px] mt-0.5 leading-relaxed">
             Led secure web server administration, monitored platform uptimes, and directed technical outreach documentation and multimedia publication.
           </p>
         </div>
         <!-- Exp Item 3 -->
         <div class="flex flex-col gap-0.5">
           <div class="flex items-baseline justify-between">
-            <span class="text-zinc-200 font-medium">DevOps Intern under IHRD</span>
-            <span class="text-[11px] text-zinc-500">Early 2024</span>
+            <span class="text-zinc-200 font-medium text-[11px]">DevOps Intern under IHRD</span>
+            <span class="text-[10px] text-zinc-500">Early 2024</span>
           </div>
-          <span class="text-[11px] text-zinc-500">Kerala Legislative Assembly · On-site</span>
-          <p class="text-zinc-400 text-xs mt-1 leading-relaxed">
+          <span class="text-[10px] text-zinc-500">Kerala Legislative Assembly · On-site</span>
+          <p class="text-zinc-400 text-[10.5px] mt-0.5 leading-relaxed">
             Administered Linux server clusters, established strict firewall policies and vulnerability reviews. Containerized legacy workloads and crafted automated GitHub Actions CI/CD workflows.
           </p>
         </div>
         <!-- Exp Item 4 -->
         <div class="flex flex-col gap-0.5">
           <div class="flex items-baseline justify-between">
-            <span class="text-zinc-200 font-medium">Technical Lead</span>
-            <span class="text-[11px] text-zinc-500">2023 — 2024</span>
+            <span class="text-zinc-200 font-medium text-[11px]">Technical Lead</span>
+            <span class="text-[10px] text-zinc-500">2023 — 2024</span>
           </div>
-          <span class="text-[11px] text-zinc-500">FOSS Cell, CE Attingal · On-site</span>
-          <p class="text-zinc-400 text-xs mt-1 leading-relaxed">
+          <span class="text-[10px] text-zinc-500">FOSS Cell, CE Attingal · On-site</span>
+          <p class="text-zinc-400 text-[10.5px] mt-0.5 leading-relaxed">
             Engineered campus self-hosted services and minimal-cost server clusters to power institutional APIs and automated WhatsApp communications.
           </p>
         </div>
@@ -357,44 +346,44 @@
     </section>
 
     <!-- Skills Matrix Section -->
-    <section class="flex flex-col gap-3">
-      <h2 class="text-xs uppercase tracking-wider text-zinc-500 font-medium">SKILLS MATRIX</h2>
-      <div class="flex flex-col gap-2.5 text-xs">
-        <div class="flex flex-col gap-1">
-          <span class="text-[11px] text-zinc-500 uppercase tracking-wider">Cloud &amp; DevOps</span>
+    <section class="flex flex-col gap-2">
+      <h2 class="text-[10px] uppercase tracking-wider text-zinc-500 font-medium">SKILLS MATRIX</h2>
+      <div class="flex flex-col gap-2 text-[10.5px]">
+        <div class="flex flex-col gap-0.5">
+          <span class="text-[9.5px] text-zinc-500 uppercase tracking-wider">Cloud &amp; DevOps</span>
           <p class="text-zinc-300">AWS, Azure, GCP, DigitalOcean, Docker, Linux / Shell, GitHub Actions CI/CD, Cloudflare Zero Trust</p>
         </div>
-        <div class="flex flex-col gap-1">
-          <span class="text-[11px] text-zinc-500 uppercase tracking-wider">Hardware &amp; Embedded IoT</span>
+        <div class="flex flex-col gap-0.5">
+          <span class="text-[9.5px] text-zinc-500 uppercase tracking-wider">Hardware &amp; Embedded IoT</span>
           <p class="text-zinc-300">Raspberry Pi, Arduino, NodeMCU, ARM, I2C / SPI / UART, MQTT</p>
         </div>
-        <div class="flex flex-col gap-1">
-          <span class="text-[11px] text-zinc-500 uppercase tracking-wider">Networking &amp; Tools</span>
+        <div class="flex flex-col gap-0.5">
+          <span class="text-[9.5px] text-zinc-500 uppercase tracking-wider">Networking &amp; Tools</span>
           <p class="text-zinc-300">Nmap, Firewalls, MySQL, Amazon SES, Postman, DaVinci Resolve</p>
         </div>
       </div>
     </section>
 
     <!-- Education & Recognition Section -->
-    <section class="flex flex-col gap-3">
-      <h2 class="text-xs uppercase tracking-wider text-zinc-500 font-medium">EDUCATION &amp; RECOGNITION</h2>
-      <div class="flex flex-col gap-3 text-xs">
+    <section class="flex flex-col gap-2">
+      <h2 class="text-[10px] uppercase tracking-wider text-zinc-500 font-medium">EDUCATION &amp; RECOGNITION</h2>
+      <div class="flex flex-col gap-2.5 text-[10.5px]">
         <div class="flex flex-col gap-0.5">
           <div class="flex items-baseline justify-between">
-            <span class="text-zinc-200 font-medium">B.Tech. Computer Science &amp; Engineering</span>
-            <span class="text-[11px] text-zinc-500">2020 — 2024</span>
+            <span class="text-zinc-200 font-medium text-[11px]">B.Tech. Computer Science &amp; Engineering</span>
+            <span class="text-[10px] text-zinc-500">2020 — 2024</span>
           </div>
-          <span class="text-zinc-400">College of Engineering Attingal · APJ Abdul Kalam Technological University (KTU)</span>
+          <span class="text-zinc-400 text-[10px]">College of Engineering Attingal · APJ Abdul Kalam Technological University (KTU)</span>
         </div>
         <div class="flex flex-col gap-0.5">
-          <span class="text-[11px] text-zinc-500 uppercase tracking-wider">Expos &amp; Summits</span>
-          <p class="text-zinc-400 leading-relaxed">
+          <span class="text-[9.5px] text-zinc-500 uppercase tracking-wider">Expos &amp; Summits</span>
+          <p class="text-zinc-400 text-[10.5px] leading-relaxed">
             Recognized for <span class="text-zinc-200">PiCloud</span> and <span class="text-zinc-200">Transit Master</span> at Global Science Festival Kerala (2024), Keraleeyam (2023), KSUM IEDC Summit, and Freedom Fest.
           </p>
         </div>
         <div class="flex flex-col gap-0.5">
-          <span class="text-[11px] text-zinc-500 uppercase tracking-wider">Academic Publication</span>
-          <p class="text-zinc-400 leading-relaxed">
+          <span class="text-[9.5px] text-zinc-500 uppercase tracking-wider">Academic Publication</span>
+          <p class="text-zinc-400 text-[10.5px] leading-relaxed">
             Documentary Editor for <span class="text-zinc-200 italic">Kerala: The Coasts That Once Was</span> (Manav Prakriti Foundation). Zenodo. doi:10.5281/zenodo.18919264
           </p>
         </div>
@@ -403,9 +392,9 @@
   </main>
 
   <!-- Quiet, Handcrafted Footer -->
-  <footer class="w-full border-t border-zinc-800/60 py-8">
-    <div class="max-w-[620px] mx-auto px-5 flex items-center justify-between text-xs text-zinc-500 font-mono">
-      <div class="flex items-center gap-3">
+  <footer class="w-full border-t border-zinc-800/60 py-6">
+    <div class="max-w-[600px] mx-auto px-5 flex items-center justify-between text-[10.5px] text-zinc-500 font-mono">
+      <div class="flex items-center gap-2.5">
         <a class="hover:text-zinc-300 transition-colors" href="https://github.com/theinfinox" rel="noreferrer" target="_blank">github</a>
         <span class="text-zinc-700">/</span>
         <a class="hover:text-zinc-300 transition-colors" href="https://linkedin.com/in/theinfinox" rel="noreferrer" target="_blank">linkedin</a>
@@ -414,7 +403,7 @@
         <span class="text-zinc-700">/</span>
         <a class="hover:text-zinc-300 transition-colors" href="legacy/">legacy</a>
       </div>
-      <span class="text-zinc-600 text-[11px]">© <span id="copyright-year">2026</span> Govind S R</span>
+      <span class="text-zinc-600 text-[10px]">© <span id="copyright-year">2026</span> Govind S R</span>
     </div>
   </footer>
 
@@ -469,17 +458,17 @@
         if (!els.streamStatus) return;
         if (state === 'online') {
           els.streamStatus.textContent = 'stream: live';
-          els.streamStatus.className = 'text-zinc-200 text-xs';
+          els.streamStatus.className = 'text-zinc-200 text-[10.5px]';
           if (els.pingPulse) els.pingPulse.className = 'animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75';
           if (els.pingDot) els.pingDot.className = 'relative inline-flex rounded-full h-2 w-2 bg-emerald-500';
         } else if (state === 'connecting') {
           els.streamStatus.textContent = 'stream: connecting...';
-          els.streamStatus.className = 'text-amber-300 text-xs';
+          els.streamStatus.className = 'text-amber-300 text-[10.5px]';
           if (els.pingPulse) els.pingPulse.className = 'animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75';
           if (els.pingDot) els.pingDot.className = 'relative inline-flex rounded-full h-2 w-2 bg-amber-500';
         } else {
           els.streamStatus.textContent = 'stream: offline (reconnecting)';
-          els.streamStatus.className = 'text-zinc-500 text-xs';
+          els.streamStatus.className = 'text-zinc-500 text-[10.5px]';
           if (els.pingPulse) els.pingPulse.className = 'hidden';
           if (els.pingDot) els.pingDot.className = 'relative inline-flex rounded-full h-2 w-2 bg-zinc-600';
         }
@@ -502,7 +491,7 @@
             const cores = data.cores || 4;
             if (els.cpuLabel) els.cpuLabel.textContent = `CPU (${cores} Cores)`;
             const cpuPercent = typeof data.cpu === 'number' ? data.cpu : parseFloat(data.cpu) || 0;
-            els.cpuVal.innerHTML = `${cpuPercent}% <span class="text-zinc-500 text-[10px]">avg</span>`;
+            els.cpuVal.innerHTML = `${cpuPercent}% <span class="text-zinc-500 text-[9px]">avg</span>`;
           }
 
           // RAM Usage
@@ -510,9 +499,9 @@
             if (data.ramDetails && data.ramDetails.totalMB && data.ramDetails.usedMB) {
               const usedGB = (data.ramDetails.usedMB / 1024).toFixed(1);
               const totalGB = (data.ramDetails.totalMB / 1024).toFixed(1);
-              els.ramVal.innerHTML = `${usedGB} <span class="text-zinc-500 text-[10px]">/ ${totalGB}GB</span>`;
+              els.ramVal.innerHTML = `${usedGB} <span class="text-zinc-500 text-[9px]">/ ${totalGB}GB</span>`;
             } else if (data.ram !== undefined) {
-              els.ramVal.innerHTML = `${data.ram}% <span class="text-zinc-500 text-[10px]">used</span>`;
+              els.ramVal.innerHTML = `${data.ram}% <span class="text-zinc-500 text-[9px]">used</span>`;
             }
           }
 
@@ -522,7 +511,7 @@
             let colorClass = 'text-emerald-400';
             if (temp >= 75) colorClass = 'text-rose-400';
             else if (temp >= 60) colorClass = 'text-amber-400';
-            els.tempVal.className = `${colorClass} font-medium mt-0.5`;
+            els.tempVal.className = `${colorClass} font-medium text-[10.5px] mt-0.5`;
             els.tempVal.textContent = `${temp.toFixed(1)}°C`;
           }
 
@@ -532,9 +521,9 @@
             const online = s.online ?? s.total;
             const total = s.total ?? online;
             if (s.errored && s.errored > 0) {
-              els.servicesVal.innerHTML = `${online}/${total} <span class="text-rose-400 text-[10px]">${s.errored} errored</span>`;
+              els.servicesVal.innerHTML = `${online}/${total} <span class="text-rose-400 text-[9px]">${s.errored} errored</span>`;
             } else {
-              els.servicesVal.innerHTML = `${online}/${total} <span class="text-emerald-400 text-[10px]">healthy</span>`;
+              els.servicesVal.innerHTML = `${online}/${total} <span class="text-emerald-400 text-[9px]">healthy</span>`;
             }
           }
 
