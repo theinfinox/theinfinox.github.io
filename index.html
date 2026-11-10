@@ -40,6 +40,7 @@
     @layer base {
       html {
         font-size: 13.5px;
+        scroll-behavior: smooth;
       }
       html, body {
         margin: 0;
@@ -49,6 +50,14 @@
       }
       body {
         overscroll-behavior: none;
+      }
+      a:focus-visible, button:focus-visible {
+        outline: 1px solid #71717a;
+        outline-offset: 2px;
+        border-radius: 2px;
+      }
+      .tabular-nums {
+        font-variant-numeric: tabular-nums;
       }
     }
     ::-webkit-scrollbar {
@@ -86,8 +95,8 @@
       <a class="hover:text-zinc-300 transition-colors" href="mailto:hi@govindsr.me">~/contact</a>
     </div>
     <div class="flex items-center gap-2.5">
-      <span class="tracking-tight text-zinc-400 font-mono text-[10px]" id="ist-clock">--:-- IST</span>
-      <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500/80"></span>
+      <span class="tracking-tight text-zinc-400 font-mono text-[10px] tabular-nums" id="ist-clock">--:-- IST</span>
+      <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500/80 transition-colors duration-300" id="top-status-dot" title="PiCloud: live"></span>
     </div>
   </header>
 
@@ -139,7 +148,7 @@
     </section>
 
     <!-- PiCloud Live Telemetry Card (info.govindsr.me sync) -->
-    <section class="flex flex-col gap-2" id="telemetry">
+    <section class="flex flex-col gap-2 scroll-mt-6" id="telemetry">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-1.5">
           <h2 class="text-[10px] uppercase tracking-wider text-zinc-500 font-medium">SERVER TELEMETRY</h2>
@@ -147,7 +156,7 @@
         </div>
         <a class="text-[10px] text-zinc-400 hover:text-white transition-colors flex items-center gap-1 group font-mono" href="https://info.govindsr.me/" rel="noreferrer" target="_blank">
           <span>info.govindsr.me</span>
-          <span class="group-hover:translate-x-0.5 transition-transform text-zinc-500 group-hover:text-zinc-200">↗</span>
+          <span class="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform text-zinc-500 group-hover:text-zinc-200">↗</span>
         </a>
       </div>
       <div class="rounded border border-zinc-800 bg-[#0d0d10] p-2.5 text-[10.5px] font-mono flex flex-col gap-2">
@@ -160,33 +169,33 @@
             </span>
             <span class="text-zinc-200 text-[10.5px]" id="telemetry-stream-status">stream: connecting...</span>
           </div>
-          <span class="text-[10px] text-zinc-500" id="telemetry-uptime">uptime: --</span>
+          <span class="text-[10px] text-zinc-500 tabular-nums" id="telemetry-uptime">uptime: --</span>
         </div>
         <!-- Metrics Grid -->
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-1.5 pt-0.5 text-[10px]">
           <div class="flex flex-col bg-zinc-900/60 p-1.5 rounded border border-zinc-800/60">
             <span class="text-zinc-500 text-[9px] uppercase" id="telemetry-cpu-label">CPU (4 Cores)</span>
-            <span class="text-zinc-200 font-medium text-[10.5px] mt-0.5" id="telemetry-cpu-val">--% <span class="text-zinc-500 text-[9px]">avg</span></span>
+            <span class="text-zinc-200 font-medium text-[10.5px] mt-0.5 tabular-nums" id="telemetry-cpu-val">--% <span class="text-zinc-500 text-[9px]">avg</span></span>
           </div>
           <div class="flex flex-col bg-zinc-900/60 p-1.5 rounded border border-zinc-800/60">
             <span class="text-zinc-500 text-[9px] uppercase">RAM Usage</span>
-            <span class="text-zinc-200 font-medium text-[10.5px] mt-0.5" id="telemetry-ram-val">-- <span class="text-zinc-500 text-[9px]">/ 4.0GB</span></span>
+            <span class="text-zinc-200 font-medium text-[10.5px] mt-0.5 tabular-nums" id="telemetry-ram-val">-- <span class="text-zinc-500 text-[9px]">/ 4.0GB</span></span>
           </div>
           <div class="flex flex-col bg-zinc-900/60 p-1.5 rounded border border-zinc-800/60">
             <span class="text-zinc-500 text-[9px] uppercase">Thermal</span>
-            <span class="text-emerald-400 font-medium text-[10.5px] mt-0.5" id="telemetry-temp-val">--°C</span>
+            <span class="text-emerald-400 font-medium text-[10.5px] mt-0.5 tabular-nums" id="telemetry-temp-val">--°C</span>
           </div>
           <div class="flex flex-col bg-zinc-900/60 p-1.5 rounded border border-zinc-800/60">
             <span class="text-zinc-500 text-[9px] uppercase">Services</span>
-            <span class="text-zinc-200 font-medium text-[10.5px] mt-0.5" id="telemetry-services-val">--/-- <span class="text-emerald-400 text-[9px]">healthy</span></span>
+            <span class="text-zinc-200 font-medium text-[10.5px] mt-0.5 tabular-nums" id="telemetry-services-val">--/-- <span class="text-emerald-400 text-[9px]">healthy</span></span>
           </div>
         </div>
         <!-- Network I/O ticker -->
         <div class="flex items-center justify-between text-[10px] text-zinc-500 pt-0.5">
           <span class="flex items-center gap-2 font-mono">
-            <span id="telemetry-rx">↓ -- B/s</span>
+            <span class="tabular-nums" id="telemetry-rx">↓ -- B/s</span>
             <span class="text-zinc-700">·</span>
-            <span id="telemetry-tx">↑ -- B/s</span>
+            <span class="tabular-nums" id="telemetry-tx">↑ -- B/s</span>
           </span>
           <a class="text-zinc-400 hover:text-white transition-colors underline underline-offset-2 text-[10px]" href="https://info.govindsr.me/" rel="noreferrer" target="_blank">
             open full telemetry feed ↗
@@ -196,7 +205,7 @@
     </section>
 
     <!-- Projects Section -->
-    <section class="flex flex-col gap-2" id="projects">
+    <section class="flex flex-col gap-2 scroll-mt-6" id="projects">
       <div class="flex items-center justify-between">
         <h2 class="text-[10px] uppercase tracking-wider text-zinc-500 font-medium">PROJECTS</h2>
         <span class="text-[10px] text-zinc-600 font-mono">06 selected</span>
@@ -213,7 +222,7 @@
               Smart College Management System backed by AWS SES &amp; PiCloud
             </p>
           </div>
-          <span class="text-[10px] text-zinc-600 group-hover:text-zinc-300 group-hover:translate-x-0.5 transition-all flex-shrink-0 font-mono">→</span>
+          <span class="text-[10px] text-zinc-600 group-hover:text-zinc-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all flex-shrink-0 font-mono">↗</span>
         </a>
         <!-- Project 2 -->
         <a class="group py-2 flex items-baseline justify-between transition-colors" href="https://info.govindsr.me/" rel="noreferrer" target="_blank">
@@ -226,7 +235,7 @@
               Self-hosted server stack with live WebSocket telemetry
             </p>
           </div>
-          <span class="text-[10px] text-zinc-600 group-hover:text-zinc-300 group-hover:translate-x-0.5 transition-all flex-shrink-0 font-mono">→</span>
+          <span class="text-[10px] text-zinc-600 group-hover:text-zinc-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all flex-shrink-0 font-mono">↗</span>
         </a>
         <!-- Project 3 -->
         <a class="group py-2 flex items-baseline justify-between transition-colors" href="https://github.com/transitmaster/transitmaster.github.io" rel="noreferrer" target="_blank">
@@ -239,7 +248,7 @@
               Urban mobility NFC smart-card transit architecture
             </p>
           </div>
-          <span class="text-[10px] text-zinc-600 group-hover:text-zinc-300 group-hover:translate-x-0.5 transition-all flex-shrink-0 font-mono">→</span>
+          <span class="text-[10px] text-zinc-600 group-hover:text-zinc-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all flex-shrink-0 font-mono">↗</span>
         </a>
         <!-- Project 4 -->
         <a class="group py-2 flex items-baseline justify-between transition-colors" href="https://github.com/theinfinox/pc-media-control-lan" rel="noreferrer" target="_blank">
@@ -252,7 +261,7 @@
               Local network remote playback controller for workstation media
             </p>
           </div>
-          <span class="text-[10px] text-zinc-600 group-hover:text-zinc-300 group-hover:translate-x-0.5 transition-all flex-shrink-0 font-mono">→</span>
+          <span class="text-[10px] text-zinc-600 group-hover:text-zinc-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all flex-shrink-0 font-mono">↗</span>
         </a>
         <!-- Project 5 -->
         <a class="group py-2 flex items-baseline justify-between transition-colors" href="https://youtu.be/qXbrW9apR3U" rel="noreferrer" target="_blank">
@@ -265,7 +274,7 @@
               Automated agricultural system with Google Assistant control
             </p>
           </div>
-          <span class="text-[10px] text-zinc-600 group-hover:text-zinc-300 group-hover:translate-x-0.5 transition-all flex-shrink-0 font-mono">→</span>
+          <span class="text-[10px] text-zinc-600 group-hover:text-zinc-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all flex-shrink-0 font-mono">↗</span>
         </a>
         <!-- Project 6 -->
         <div class="py-2 flex items-baseline justify-between">
@@ -444,22 +453,40 @@
       };
 
       function setStatus(state) {
-        if (!els.streamStatus) return;
+        const topDot = document.getElementById('top-status-dot');
         if (state === 'online') {
-          els.streamStatus.textContent = 'stream: live';
-          els.streamStatus.className = 'text-zinc-200 text-[10.5px]';
+          if (els.streamStatus) {
+            els.streamStatus.textContent = 'stream: live';
+            els.streamStatus.className = 'text-zinc-200 text-[10.5px]';
+          }
           if (els.pingPulse) els.pingPulse.className = 'animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75';
           if (els.pingDot) els.pingDot.className = 'relative inline-flex rounded-full h-2 w-2 bg-emerald-500';
+          if (topDot) {
+            topDot.className = 'inline-block w-1.5 h-1.5 rounded-full bg-emerald-500/80 transition-colors duration-300';
+            topDot.title = 'PiCloud: live';
+          }
         } else if (state === 'connecting') {
-          els.streamStatus.textContent = 'stream: connecting...';
-          els.streamStatus.className = 'text-amber-300 text-[10.5px]';
+          if (els.streamStatus) {
+            els.streamStatus.textContent = 'stream: connecting...';
+            els.streamStatus.className = 'text-amber-300 text-[10.5px]';
+          }
           if (els.pingPulse) els.pingPulse.className = 'animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75';
           if (els.pingDot) els.pingDot.className = 'relative inline-flex rounded-full h-2 w-2 bg-amber-500';
+          if (topDot) {
+            topDot.className = 'inline-block w-1.5 h-1.5 rounded-full bg-amber-500/80 transition-colors duration-300';
+            topDot.title = 'PiCloud: connecting...';
+          }
         } else {
-          els.streamStatus.textContent = 'stream: offline (reconnecting)';
-          els.streamStatus.className = 'text-zinc-500 text-[10.5px]';
+          if (els.streamStatus) {
+            els.streamStatus.textContent = 'stream: offline (reconnecting)';
+            els.streamStatus.className = 'text-zinc-500 text-[10.5px]';
+          }
           if (els.pingPulse) els.pingPulse.className = 'hidden';
           if (els.pingDot) els.pingDot.className = 'relative inline-flex rounded-full h-2 w-2 bg-zinc-600';
+          if (topDot) {
+            topDot.className = 'inline-block w-1.5 h-1.5 rounded-full bg-zinc-600 transition-colors duration-300';
+            topDot.title = 'PiCloud: offline';
+          }
         }
       }
 
