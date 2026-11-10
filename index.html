@@ -59,6 +59,12 @@
       .tabular-nums {
         font-variant-numeric: tabular-nums;
       }
+      summary::-webkit-details-marker {
+        display: none;
+      }
+      summary {
+        list-style: none;
+      }
     }
     ::-webkit-scrollbar {
       display: none;
@@ -134,17 +140,9 @@
           Self-Employed · Remote (2024 — Present)
         </p>
         <p class="text-zinc-400 text-[10.5px] mt-0.5 leading-relaxed">
-          Designing hardened architectures across AWS, Azure, GCP, and DigitalOcean. Specializing in Cloudflare Zero Trust perimeter security and edge workloads.
+          Designing hardened multi-cloud architectures across AWS, Azure, GCP, and DigitalOcean. Bridging embedded IoT systems with scalable backends and Zero Trust perimeter security.
         </p>
       </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="flex flex-col gap-1.5">
-      <h2 class="text-[10px] uppercase tracking-wider text-zinc-500 font-medium">ABOUT</h2>
-      <p class="text-[10.5px] text-zinc-400 leading-relaxed">
-        I am a systems &amp; cloud consultant and hardware tinkerer who designs secure multi-cloud infrastructures and builds embedded systems. Specializing in AWS, Azure, GCP, Cloudflare Zero Trust, and IoT solutions that connect physical hardware with scalable cloud backends.
-      </p>
     </section>
 
     <!-- PiCloud Live Telemetry Card (info.govindsr.me sync) -->
@@ -292,12 +290,17 @@
       </div>
     </section>
 
-    <!-- Experience Timeline Section -->
-    <section class="flex flex-col gap-2">
-      <div class="flex items-center justify-between">
-        <h2 class="text-[10px] uppercase tracking-wider text-zinc-500 font-medium">EXPERIENCE</h2>
-      </div>
-      <div class="flex flex-col gap-3.5 text-[10.5px]">
+    <!-- Experience Timeline Section (Collapsible) -->
+    <details class="group flex flex-col gap-2">
+      <summary class="flex items-center justify-between cursor-pointer list-none select-none text-[10px] uppercase tracking-wider text-zinc-500 font-medium hover:text-zinc-300 transition-colors">
+        <div class="flex items-center gap-1.5">
+          <span class="text-zinc-600 group-open:rotate-90 transition-transform font-mono inline-block">▸</span>
+          <span>EXPERIENCE</span>
+        </div>
+        <span class="text-[9.5px] text-zinc-600 font-mono group-open:hidden">[+ 04 entries]</span>
+        <span class="text-[9.5px] text-zinc-600 font-mono hidden group-open:inline">[-]</span>
+      </summary>
+      <div class="flex flex-col gap-3 text-[10.5px] pt-1">
         <!-- Exp Item 1 -->
         <div class="flex flex-col gap-0.5">
           <div class="flex items-baseline justify-between">
@@ -343,12 +346,19 @@
           </p>
         </div>
       </div>
-    </section>
+    </details>
 
-    <!-- Skills Matrix Section -->
-    <section class="flex flex-col gap-2">
-      <h2 class="text-[10px] uppercase tracking-wider text-zinc-500 font-medium">SKILLS MATRIX</h2>
-      <div class="flex flex-col gap-2 text-[10.5px]">
+    <!-- Skills Matrix Section (Collapsible) -->
+    <details class="group flex flex-col gap-2">
+      <summary class="flex items-center justify-between cursor-pointer list-none select-none text-[10px] uppercase tracking-wider text-zinc-500 font-medium hover:text-zinc-300 transition-colors">
+        <div class="flex items-center gap-1.5">
+          <span class="text-zinc-600 group-open:rotate-90 transition-transform font-mono inline-block">▸</span>
+          <span>SKILLS MATRIX</span>
+        </div>
+        <span class="text-[9.5px] text-zinc-600 font-mono group-open:hidden">[+ cloud, iot, tools]</span>
+        <span class="text-[9.5px] text-zinc-600 font-mono hidden group-open:inline">[-]</span>
+      </summary>
+      <div class="flex flex-col gap-2 text-[10.5px] pt-1">
         <div class="flex flex-col gap-0.5">
           <span class="text-[9.5px] text-zinc-500 uppercase tracking-wider">Cloud &amp; DevOps</span>
           <p class="text-zinc-300">AWS, Azure, GCP, DigitalOcean, Docker, Linux / Shell, GitHub Actions CI/CD, Cloudflare Zero Trust</p>
@@ -362,12 +372,19 @@
           <p class="text-zinc-300">Nmap, Firewalls, MySQL, Amazon SES, Postman, DaVinci Resolve</p>
         </div>
       </div>
-    </section>
+    </details>
 
-    <!-- Education & Recognition Section -->
-    <section class="flex flex-col gap-2">
-      <h2 class="text-[10px] uppercase tracking-wider text-zinc-500 font-medium">EDUCATION &amp; RECOGNITION</h2>
-      <div class="flex flex-col gap-2.5 text-[10.5px]">
+    <!-- Education & Recognition Section (Collapsible) -->
+    <details class="group flex flex-col gap-2">
+      <summary class="flex items-center justify-between cursor-pointer list-none select-none text-[10px] uppercase tracking-wider text-zinc-500 font-medium hover:text-zinc-300 transition-colors">
+        <div class="flex items-center gap-1.5">
+          <span class="text-zinc-600 group-open:rotate-90 transition-transform font-mono inline-block">▸</span>
+          <span>EDUCATION &amp; RECOGNITION</span>
+        </div>
+        <span class="text-[9.5px] text-zinc-600 font-mono group-open:hidden">[+ b.tech, honors]</span>
+        <span class="text-[9.5px] text-zinc-600 font-mono hidden group-open:inline">[-]</span>
+      </summary>
+      <div class="flex flex-col gap-2.5 text-[10.5px] pt-1">
         <div class="flex flex-col gap-0.5">
           <div class="flex items-baseline justify-between">
             <span class="text-zinc-200 font-medium text-[11px]">B.Tech. Computer Science &amp; Engineering</span>
@@ -388,7 +405,7 @@
           </p>
         </div>
       </div>
-    </section>
+    </details>
   </main>
 
   <!-- Quiet, Handcrafted Footer -->
