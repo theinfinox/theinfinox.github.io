@@ -1,0 +1,9 @@
+{
+  "name": "theinfinox.github.io",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal website and portfolio of Govind S R",
+  "scripts": {
+    "build": "echo 'Static HTML build ready'"
+  }
+}

@@ -1,0 +1,5 @@
+[build]
+  # Publish the repository root containing index.html and assets
+  publish = "."
+  # Static HTML site - no build step required
+  command = "echo 'Static site - skipping build step'"
