@@ -2,4 +2,8 @@
   # Publish the repository root containing index.html and assets
   publish = "."
   # Static HTML site - no build step required
-  command = "echo 'Static site - skipping build step'"
+  command = "echo 'Static HTML site — no build step required'"
+
+[build.environment]
+  # Disable Netlify's automatic Next.js runtime plugin and .next directory check
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"
