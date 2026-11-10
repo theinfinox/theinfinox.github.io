@@ -161,7 +161,7 @@
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2">
           <h2 class="text-xs uppercase tracking-wider text-zinc-500 font-medium">SERVER TELEMETRY</h2>
-          <span class="text-[11px] text-zinc-600 font-mono">// PiCloud node</span>
+          <span class="text-[11px] text-zinc-600 font-mono" id="telemetry-node-label">// PiCloud node</span>
         </div>
         <a class="text-[11px] text-zinc-400 hover:text-white transition-colors flex items-center gap-1 group font-mono" href="https://info.govindsr.me/" rel="noreferrer" target="_blank">
           <span>info.govindsr.me</span>
@@ -172,41 +172,41 @@
         <!-- Live status bar -->
         <div class="flex items-center justify-between border-b border-zinc-800/80 pb-2">
           <div class="flex items-center gap-2">
-            <span class="relative flex h-2 w-2">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            <span class="relative flex h-2 w-2" id="telemetry-status-container">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" id="telemetry-ping-pulse"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" id="telemetry-ping-dot"></span>
             </span>
-            <span class="text-zinc-200 text-xs">stream: online</span>
+            <span class="text-zinc-200 text-xs" id="telemetry-stream-status">stream: connecting...</span>
             <span class="text-zinc-600">|</span>
             <span class="text-zinc-400 text-[11px]">Cloudflare Zero Trust tunnel</span>
           </div>
-          <span class="text-[11px] text-zinc-500">uptime: 42d 16h</span>
+          <span class="text-[11px] text-zinc-500" id="telemetry-uptime">uptime: --</span>
         </div>
         <!-- Metrics Grid -->
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-0.5 text-[11px]">
           <div class="flex flex-col bg-zinc-900/60 p-2 rounded border border-zinc-800/60">
-            <span class="text-zinc-500 text-[10px] uppercase">CPU (4 Cores)</span>
-            <span class="text-zinc-200 font-medium mt-0.5">18% <span class="text-zinc-500 text-[10px]">avg</span></span>
+            <span class="text-zinc-500 text-[10px] uppercase" id="telemetry-cpu-label">CPU (4 Cores)</span>
+            <span class="text-zinc-200 font-medium mt-0.5" id="telemetry-cpu-val">--% <span class="text-zinc-500 text-[10px]">avg</span></span>
           </div>
           <div class="flex flex-col bg-zinc-900/60 p-2 rounded border border-zinc-800/60">
             <span class="text-zinc-500 text-[10px] uppercase">RAM Usage</span>
-            <span class="text-zinc-200 font-medium mt-0.5">1.4 <span class="text-zinc-500 text-[10px]">/ 4.0GB</span></span>
+            <span class="text-zinc-200 font-medium mt-0.5" id="telemetry-ram-val">-- <span class="text-zinc-500 text-[10px]">/ 4.0GB</span></span>
           </div>
           <div class="flex flex-col bg-zinc-900/60 p-2 rounded border border-zinc-800/60">
             <span class="text-zinc-500 text-[10px] uppercase">Thermal</span>
-            <span class="text-emerald-400 font-medium mt-0.5">41.2°C</span>
+            <span class="text-emerald-400 font-medium mt-0.5" id="telemetry-temp-val">--°C</span>
           </div>
           <div class="flex flex-col bg-zinc-900/60 p-2 rounded border border-zinc-800/60">
             <span class="text-zinc-500 text-[10px] uppercase">Services</span>
-            <span class="text-zinc-200 font-medium mt-0.5">6/6 <span class="text-emerald-400 text-[10px]">healthy</span></span>
+            <span class="text-zinc-200 font-medium mt-0.5" id="telemetry-services-val">--/-- <span class="text-emerald-400 text-[10px]">healthy</span></span>
           </div>
         </div>
         <!-- Network I/O ticker -->
         <div class="flex items-center justify-between text-[11px] text-zinc-500 pt-1">
-          <span class="flex items-center gap-2">
-            <span>↓ 1.24 MB/s</span>
+          <span class="flex items-center gap-2 font-mono">
+            <span id="telemetry-rx">↓ -- B/s</span>
             <span class="text-zinc-700">·</span>
-            <span>↑ 412 KB/s</span>
+            <span id="telemetry-tx">↑ -- B/s</span>
           </span>
           <a class="text-zinc-400 hover:text-white transition-colors underline underline-offset-2" href="https://info.govindsr.me/" rel="noreferrer" target="_blank">
             open full telemetry feed ↗
@@ -442,6 +442,172 @@
     if (yrEl) {
       yrEl.textContent = new Date().getFullYear();
     }
+
+    // PiCloud Live Telemetry WebSocket
+    (function initTelemetry() {
+      const WS_URL = 'wss://serverws.govindsr.me/';
+      let ws = null;
+      let reconnectTimer = null;
+      let backoffDelay = 2000;
+
+      const els = {
+        pingPulse: document.getElementById('telemetry-ping-pulse'),
+        pingDot: document.getElementById('telemetry-ping-dot'),
+        streamStatus: document.getElementById('telemetry-stream-status'),
+        nodeLabel: document.getElementById('telemetry-node-label'),
+        uptime: document.getElementById('telemetry-uptime'),
+        cpuLabel: document.getElementById('telemetry-cpu-label'),
+        cpuVal: document.getElementById('telemetry-cpu-val'),
+        ramVal: document.getElementById('telemetry-ram-val'),
+        tempVal: document.getElementById('telemetry-temp-val'),
+        servicesVal: document.getElementById('telemetry-services-val'),
+        rx: document.getElementById('telemetry-rx'),
+        tx: document.getElementById('telemetry-tx')
+      };
+
+      function setStatus(state) {
+        if (!els.streamStatus) return;
+        if (state === 'online') {
+          els.streamStatus.textContent = 'stream: live';
+          els.streamStatus.className = 'text-zinc-200 text-xs';
+          if (els.pingPulse) els.pingPulse.className = 'animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75';
+          if (els.pingDot) els.pingDot.className = 'relative inline-flex rounded-full h-2 w-2 bg-emerald-500';
+        } else if (state === 'connecting') {
+          els.streamStatus.textContent = 'stream: connecting...';
+          els.streamStatus.className = 'text-amber-300 text-xs';
+          if (els.pingPulse) els.pingPulse.className = 'animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75';
+          if (els.pingDot) els.pingDot.className = 'relative inline-flex rounded-full h-2 w-2 bg-amber-500';
+        } else {
+          els.streamStatus.textContent = 'stream: offline (reconnecting)';
+          els.streamStatus.className = 'text-zinc-500 text-xs';
+          if (els.pingPulse) els.pingPulse.className = 'hidden';
+          if (els.pingDot) els.pingDot.className = 'relative inline-flex rounded-full h-2 w-2 bg-zinc-600';
+        }
+      }
+
+      function handleData(data) {
+        try {
+          // Uptime
+          if (data.uptime && els.uptime) {
+            els.uptime.textContent = `uptime: ${data.uptime}`;
+          }
+
+          // Node label
+          if (data.hostname && els.nodeLabel) {
+            els.nodeLabel.textContent = `// ${data.hostname} node`;
+          }
+
+          // CPU
+          if (els.cpuVal) {
+            const cores = data.cores || 4;
+            if (els.cpuLabel) els.cpuLabel.textContent = `CPU (${cores} Cores)`;
+            const cpuPercent = typeof data.cpu === 'number' ? data.cpu : parseFloat(data.cpu) || 0;
+            els.cpuVal.innerHTML = `${cpuPercent}% <span class="text-zinc-500 text-[10px]">avg</span>`;
+          }
+
+          // RAM Usage
+          if (els.ramVal) {
+            if (data.ramDetails && data.ramDetails.totalMB && data.ramDetails.usedMB) {
+              const usedGB = (data.ramDetails.usedMB / 1024).toFixed(1);
+              const totalGB = (data.ramDetails.totalMB / 1024).toFixed(1);
+              els.ramVal.innerHTML = `${usedGB} <span class="text-zinc-500 text-[10px]">/ ${totalGB}GB</span>`;
+            } else if (data.ram !== undefined) {
+              els.ramVal.innerHTML = `${data.ram}% <span class="text-zinc-500 text-[10px]">used</span>`;
+            }
+          }
+
+          // Thermal
+          if (els.tempVal && data.temp) {
+            const temp = parseFloat(data.temp);
+            let colorClass = 'text-emerald-400';
+            if (temp >= 75) colorClass = 'text-rose-400';
+            else if (temp >= 60) colorClass = 'text-amber-400';
+            els.tempVal.className = `${colorClass} font-medium mt-0.5`;
+            els.tempVal.textContent = `${temp.toFixed(1)}°C`;
+          }
+
+          // PM2 Services
+          if (els.servicesVal && data.pm2 && data.pm2.summary) {
+            const s = data.pm2.summary;
+            const online = s.online ?? s.total;
+            const total = s.total ?? online;
+            if (s.errored && s.errored > 0) {
+              els.servicesVal.innerHTML = `${online}/${total} <span class="text-rose-400 text-[10px]">${s.errored} errored</span>`;
+            } else {
+              els.servicesVal.innerHTML = `${online}/${total} <span class="text-emerald-400 text-[10px]">healthy</span>`;
+            }
+          }
+
+          // Network I/O
+          if (data.network) {
+            if (els.rx && data.network.rxFormatted) els.rx.textContent = `↓ ${data.network.rxFormatted}`;
+            if (els.tx && data.network.txFormatted) els.tx.textContent = `↑ ${data.network.txFormatted}`;
+          }
+        } catch (err) {
+          console.warn('Error rendering telemetry update', err);
+        }
+      }
+
+      function connect() {
+        if (ws && (ws.readyState === WebSocket.OPEN || ws.readyState === WebSocket.CONNECTING)) {
+          return;
+        }
+        setStatus('connecting');
+        try {
+          ws = new WebSocket(WS_URL);
+        } catch (e) {
+          scheduleReconnect();
+          return;
+        }
+
+        ws.onopen = () => {
+          backoffDelay = 2000;
+          setStatus('online');
+        };
+
+        ws.onmessage = (event) => {
+          try {
+            const payload = JSON.parse(event.data);
+            handleData(payload);
+          } catch (e) {
+            console.warn('Malformed telemetry payload', e);
+          }
+        };
+
+        ws.onerror = () => {
+          ws.close();
+        };
+
+        ws.onclose = () => {
+          setStatus('offline');
+          scheduleReconnect();
+        };
+      }
+
+      function scheduleReconnect() {
+        clearTimeout(reconnectTimer);
+        reconnectTimer = setTimeout(() => {
+          backoffDelay = Math.min(backoffDelay * 1.5, 10000);
+          connect();
+        }, backoffDelay);
+      }
+
+      // Initial connect
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', connect);
+      } else {
+        connect();
+      }
+
+      // Reconnect when user switches back to tab
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') {
+          if (!ws || ws.readyState === WebSocket.CLOSED) {
+            connect();
+          }
+        }
+      });
+    })();
   </script>
 </body>
 </html>
